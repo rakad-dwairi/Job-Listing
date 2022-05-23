@@ -33,6 +33,11 @@ class Job extends Model
         'short_description',
     ];
 
+
+    public function applied_jobs()
+    {
+        return $this->hasMany(AppliedJob::class);
+    }
     public function company()
     {
         return $this->belongsTo(Company::class, 'company_id');

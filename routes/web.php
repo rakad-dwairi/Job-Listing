@@ -39,4 +39,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Jobs
     Route::delete('jobs/destroy', 'JobsController@massDestroy')->name('jobs.massDestroy');
     Route::resource('jobs', 'JobsController');
+
+    // applied job
+    Route::delete('AppliedJob/destroy', 'AppliedJobController@massDestroy')->name('appliedJob.massDestroy');
+    Route::post('AppliedJob/downloadResume', 'AppliedJobController@downloadResume')->name('appliedJob.downloadResume');
+    Route::resource('appliedJobs', 'AppliedJobController');
 });
