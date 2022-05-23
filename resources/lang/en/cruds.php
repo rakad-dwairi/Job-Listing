@@ -151,4 +151,17 @@ return [
             'salary_helper'            => '',
         ],
     ],
+
+    'allied_jobs'            => [
+        'title'          => 'Applied Jobs',
+        'title_singular' => 'Applied Job',
+        'fields'         => [
+            'id'                       => 'ID',
+            'resume'                   => 'Resume',
+            'user_id'                  => 'User Email',
+            'job_id'                   => 'Job Name',
+            'status'                   => 'Status',
+
+        ],
+    ],
 ];
