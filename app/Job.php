@@ -31,9 +31,14 @@ class Job extends Model
         'requirements',
         'full_description',
         'short_description',
+        'expired_date',
     ];
 
 
+    public function scopeExpiredDate($query)
+    {
+        return $query->where('expired_date','>', date("Y-m-d"));
+    }
     public function applied_jobs()
     {
         return $this->hasMany(AppliedJob::class);

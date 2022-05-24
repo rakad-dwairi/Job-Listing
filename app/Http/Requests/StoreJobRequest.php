@@ -39,6 +39,9 @@ class StoreJobRequest extends FormRequest
             'salary'       => [
                 'required',
             ],
+            'expired_date'       => [
+                'required','date','after:tomorrow'
+            ],
         ];
     }
 }

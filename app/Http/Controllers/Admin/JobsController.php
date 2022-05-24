@@ -18,9 +18,14 @@ class JobsController extends Controller
 {
     public function index()
     {
+
+        // dd();
         abort_if(Gate::denies('job_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        // scope for expired date
         $jobs = Job::all();
+
+        
 
         return view('admin.jobs.index', compact('jobs'));
     }
@@ -43,7 +48,12 @@ class JobsController extends Controller
         $job = Job::create($request->all());
         $job->categories()->sync($request->input('categories', []));
 
-        return redirect()->route('admin.jobs.index');
+        if($job){
+            return redirect()->route('admin.jobs.index')->with('success','Job Create Successfully');
+        }else{
+            return redirect()->route('admin.jobs.index')->with('error','Something went wrong, Please Try Again');
+
+        }
     }
 
     public function edit(Job $job)

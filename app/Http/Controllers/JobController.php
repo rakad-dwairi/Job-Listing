@@ -10,18 +10,27 @@ class JobController extends Controller
 {
     public function index()
     {
-        $jobs = Job::with('company')
+        $jobs = Job::expiredDate()->with('company')
             ->paginate(7);
 
         $banner = 'Jobs';
-
+// dd($jobs);
         return view('jobs.index', compact(['jobs', 'banner']));
     }
 
-    public function show(Job $job)
+    public function show($jobs)
     {
-        $job->load('company');
 
-        return view('jobs.show', compact('job'));
+        $job = Job::expiredDate()->find($jobs);
+        // $job->expiredDate()->get();
+        
+        if($job){
+            $job->load('company');
+            
+            return view('jobs.show', compact('job'));
+        }else{
+            return redirect()->back()->with('error','This Job Not Valid');
+        }
+
     }
 }

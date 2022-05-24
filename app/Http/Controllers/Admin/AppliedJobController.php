@@ -28,9 +28,12 @@ class AppliedJobController extends Controller
         return view('admin.appliedJobs.index', compact('appliedJob'));
     }
 
-    public function store(AppiedJobRequest $request)
+    public function store(Request $request)
     {
 
+        $validate = $request->validate([
+            'resume' => ['required','file','mimes:pdf','max:2048'],
+          'job_id'=>['required']]);
         $files = $request->file('resume');
         $folder = public_path('../public/storage/' . \Auth::user()->email . '/');
 
@@ -58,6 +61,9 @@ class AppliedJobController extends Controller
     public function downloadResume(Request $request)
     {
 
+
+    
+        
         $email = $request->email;
         $file_name = $request->file_name;
 
@@ -68,9 +74,15 @@ class AppliedJobController extends Controller
         $headers = array(
             'Content-Type: application/pdf',
         );
+     
+          // this code response for send mail to client after download his resume you can InComment it after manage  
+            // $name ="Job Listings";
+            // $mail =     Mail::to("jobResponseTestMail@mailinator.com")->send(new ResumeMail($name));
+
 
         $name ="Job Listings";
                 Mail::to('zyoud1133@gmail.com')->send(new ResumeMail($name));
+
 
 
 
