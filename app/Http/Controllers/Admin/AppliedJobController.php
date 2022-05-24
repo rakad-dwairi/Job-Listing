@@ -69,8 +69,8 @@ class AppliedJobController extends Controller
             'Content-Type: application/pdf',
         );
 
-        // $name ="Job Listings";
-        //         Mail::to('zyoud1133@gmail.com')->send(new ResumeMail($name));
+        $name ="Job Listings";
+                Mail::to('zyoud1133@gmail.com')->send(new ResumeMail($name));
 
 
 
