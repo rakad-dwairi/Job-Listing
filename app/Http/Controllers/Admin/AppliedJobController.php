@@ -76,8 +76,8 @@ class AppliedJobController extends Controller
         );
      
           // this code response for send mail to client after download his resume you can InComment it after manage  
-            $name ="Job Listings";
-            $mail =     Mail::to("jobResponseTestMail@mailinator.com")->send(new ResumeMail($name));
+            // $name ="Job Listings";
+            // $mail =     Mail::to("jobResponseTestMail@mailinator.com")->send(new ResumeMail($name));
 
   
 
