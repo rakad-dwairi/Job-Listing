@@ -59,6 +59,26 @@
 
 @section('content')
     <div class="col-lg-8 post-list">
+
+        @if ($errors->any())
+        @foreach ($errors->all() as $error)
+        <div class="alert alert-danger" role="alert">
+
+<strong> {{$error}} </strong><br>
+</div>
+        @endforeach
+    @endif
+        @if(Session::has('success'))
+        <div class="alert alert-success" role="alert">
+            <strong>{{ Session::get('success') }}</strong>
+        </div>
+        
+        @elseif(Session::has('error'))
+        
+        <div class="alert alert-danger" role="alert">
+            <strong>{{ Session::get('error') }}</strong>
+        </div>
+        @endif
         @foreach ($jobs as $job)
             <div class="single-post d-flex flex-row">
                 <div class="thumb">
@@ -82,6 +102,8 @@
                     <p class="address"><span class="lnr lnr-map"></span> {{ $job->address }}</p>
                     <p class="address"><span class="lnr lnr-database"></span> {{ $job->salary }}</p>
 
+@auth 
+@if(auth()->user()->roles[0]->id != 1) 
 
                     <!-- Button Applied Job -->
                     <button type="button" class="btn btn-primary button-applied-jbs" data-id="{{ $job->id }}"
@@ -90,6 +112,9 @@
                     </button>
 
 
+                    @endif
+
+@endauth
 
 
 

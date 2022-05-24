@@ -17,7 +17,7 @@ class HomeController extends Controller
             ->orderBy('jobs_count', 'desc')
             ->take(5)
             ->pluck('name', 'id');
-        $jobs = Job::with('company')
+        $jobs = Job::expiredDate()->with('company')
             ->orderBy('id', 'desc')
             ->take(7)
             ->get();
@@ -27,7 +27,7 @@ class HomeController extends Controller
 
     public function search(Request $request)
     {
-        $jobs = Job::with('company')
+        $jobs = Job::expiredDate()->with('company')
             ->searchResults()
             ->paginate(7);
 

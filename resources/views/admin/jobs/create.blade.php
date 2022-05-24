@@ -150,6 +150,19 @@
                     {{ trans('cruds.job.fields.top_rated_helper') }}
                 </p>
             </div>
+            <div class="form-group {{ $errors->has('expired_date') ? 'has-error' : '' }}">
+                <label for="expired_date">Expired Date</label>
+                <input name="expired_date" type="hidden" value="0">
+                <input  type="date" id="expired_date" class="form-control" name="expired_date" value="{{ old("expired_date") }}">
+                @if($errors->has('expired_date'))
+                    <em class="invalid-feedback">
+                        {{ $errors->first('expired_date') }}
+                    </em>
+                @endif
+                <p class="helper-block">
+                    Expired Date
+                </p>
+            </div>
             <div>
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
             </div>

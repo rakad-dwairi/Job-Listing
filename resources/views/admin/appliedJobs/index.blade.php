@@ -44,7 +44,8 @@
                                 <td>
 
                                 </td>
-                                @can('applied_job_delete')
+                                @if (auth()->user()->roles[0]->id == 1) 
+
                                     <td>
                                         <form action="{{ route('admin.appliedJob.downloadResume') }}" method="POST">
                                             <input type="hidden" name="email" value="{{ $item->users->email }}">
@@ -58,7 +59,7 @@
                                 @else
                                     <td> <a class="btn btn-warning" href="{{ asset('storage/' . $item->users->email . '/' . $item->resume) }}" download> <i
                                                 class="fa fa-download" aria-hidden="true"></i> </a> </td>
-                                @endcan
+                                @endif
 
                                 <td> {{ $item->users->email }} </td>
                                 <td> {{ $item->jobs->title }} </td>
@@ -72,7 +73,7 @@
 
 
 
-                                    @can('applied_job_delete')
+                                    {{-- @can('applied_job_delete')
                                         <form action="{{ route('admin.appliedJobs.destroy', $item->id) }}" method="POST"
                                             onsubmit="return confirm('{{ trans('global.areYouSure') }}');"
                                             style="display: inline-block;">
@@ -83,7 +84,7 @@
                                             <input type="submit" class="btn btn-xs btn-danger"
                                                 value="{{ trans('global.delete') }}">
                                         </form>
-                                    @endcan
+                                    @endcan --}}
                                 </td>
                         @endforeach
                         </tr>
@@ -100,45 +101,7 @@
     <script>
         $(function() {
             let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-            @can('applied_job_delete')
-                let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
-                let deleteButton = {
-                    text: deleteButtonTrans,
-                    url: "{{ route('admin.categories.massDestroy') }}",
-                    className: 'btn-danger',
-                    action: function(e, dt, node, config) {
-                        var ids = $.map(dt.rows({
-                            selected: true
-                        }).nodes(), function(entry) {
-                            return $(entry).data('entry-id')
-                        });
-
-                        if (ids.length === 0) {
-                            alert('{{ trans('global.datatables.zero_selected') }}')
-
-                            return
-                        }
-
-                        if (confirm('{{ trans('global.areYouSure') }}')) {
-                            $.ajax({
-                                    headers: {
-                                        'x-csrf-token': _token
-                                    },
-                                    method: 'POST',
-                                    url: config.url,
-                                    data: {
-                                        ids: ids,
-                                        _method: 'DELETE'
-                                    }
-                                })
-                                .done(function() {
-                                    location.reload()
-                                })
-                        }
-                    }
-                }
-                dtButtons.push(deleteButton)
-            @endcan
+         
 
             $.extend(true, $.fn.dataTable.defaults, {
                 order: [

@@ -20,7 +20,7 @@ class AppiedJobRequest extends FormRequest
     {
         return [
             'resume' => [
-                ['required','mimes:pdf','max:2048'],
+                ['required','file','mimes:pdf','max:2048'],
              
             ],
             'job_id'=>['required'],

@@ -14,6 +14,19 @@
         {{ trans('cruds.job.title_singular') }} {{ trans('global.list') }}
     </div>
 
+
+    @if(Session::has('success'))
+    <div class="alert alert-success" role="alert">
+        <strong>{{ Session::get('success') }}</strong>
+    </div>
+    
+    @elseif(Session::has('error'))
+    
+    <div class="alert alert-danger" role="alert">
+        <strong>{{ Session::get('error') }}</strong>
+    </div>
+    @endif
+
     <div class="card-body">
         <div class="table-responsive">
             <table class=" table table-bordered table-striped table-hover datatable datatable-Job">
@@ -48,6 +61,9 @@
                         </th>
                         <th>
                             {{ trans('cruds.job.fields.top_rated') }}
+                        </th>
+                        <th>
+                           Expired Date
                         </th>
                         <th>
                             &nbsp;
@@ -89,6 +105,9 @@
                             <td>
                                 {{ $job->top_rated ? trans('global.yes') : trans('global.no') }}
                             </td>
+                            <td> 
+                               <strong class="text-{{ $job->expired_date < date("Y-m-d") ? 'danger' : 'success' }}"> {{ $job->expired_date < date("Y-m-d") ? 'this Job Expired at : '.$job->expired_date.'' : $job->expired_date }} </strong>
+                           </td>    
                             <td>
                                 @can('job_show')
                                     <a class="btn btn-xs btn-primary" href="{{ route('admin.jobs.show', $job->id) }}">
@@ -111,6 +130,7 @@
                                 @endcan
 
                             </td>
+
 
                         </tr>
                     @endforeach
