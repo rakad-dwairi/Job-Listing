@@ -152,8 +152,8 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => '36',
                 'title' => 'job_access',
             ],
-            
-            // 
+
+            //
             [
                 'id'    => '37',
                 'title' => 'applied_job_create',
@@ -161,6 +161,14 @@ class PermissionsTableSeeder extends Seeder
             [
                 'id'    => '38',
                 'title' => 'applied_job_access',
+            ],
+            [
+                'id'    => '39',
+                'title' => 'subscription_access',
+            ],
+            [
+                'id'    => '40',
+                'title' => 'subscription_create',
             ],
         ];
 
