@@ -1,16 +1,30 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+
+
 Route::redirect('/home', '/admin');
 Auth::routes(['register' => false]);
+
+Route::get('/',[LoginController::class,'showLoginForm']);
+Route::group(['prefix' => 'User','middleware' => ['auth']], function () {
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('search', 'HomeController@search')->name('search');
 Route::resource('jobs', 'JobController')->only(['index', 'show']);
+Route::resource('subscriptions', SubscriptionController::class)->only('store');
+
 Route::get('category/{category}', 'CategoryController@show')->name('categories.show');
 Route::get('location/{location}', 'LocationController@show')->name('locations.show');
+});
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
+
+    Route::resource('subscriptions', SubscriptionController::class);
+    Route::post('subscriptions/send', 'SubscriptionController@send')->name("subscriptions.send");
+
+
     // Permissions
     Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
     Route::resource('permissions', 'PermissionsController');

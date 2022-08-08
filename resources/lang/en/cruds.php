@@ -164,4 +164,16 @@ return [
 
         ],
     ],
+    'subscriptions'            => [
+        'sendMail'          => 'Send Mail',
+        'title_subscriptions' => 'Subscription',
+        'fields'         => [
+            'id'                       => 'ID',
+            'email'                   => 'Email',
+            'title'                  => 'Title',
+            'body'                   => 'Last News',
+            'count_send'                   => 'Count Send',
+
+        ],
+    ],
 ];

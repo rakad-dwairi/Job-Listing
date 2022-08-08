@@ -103,6 +103,15 @@
                 </a>
             </li>
         @endcan
+        @can('subscription_access')
+        <li class="nav-item">
+            <a href="{{ route("admin.subscriptions.index") }}" class="nav-link {{ request()->is('admin/subscriptions') || request()->is('admin/subscriptions/*') ? 'active' : '' }}">
+
+<i class="fa fa-google" aria-hidden="true"></i>
+                {{ trans('cruds.subscriptions.sendMail') }}
+            </a>
+        </li>
+    @endcan
             <li class="nav-item">
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i class="nav-icon fas fa-fw fa-sign-out-alt">

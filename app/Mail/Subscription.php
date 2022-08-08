@@ -7,18 +7,20 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ResumeMail extends Mailable
+class Subscription extends Mailable
 {
     use Queueable, SerializesModels;
+
+    public $details;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($details)
     {
-        //
+        $this->details = $details;
     }
 
     /**
@@ -28,10 +30,6 @@ class ResumeMail extends Mailable
      */
     public function build()
     {
-        $email = env('MAIL_FROM');
-
-        $name = "Job Listings";
-        return $this->from($email)
-                ->view('mail',compact('name'));
+        return $this->subject('Job Listing')->view('sendSubscription');
     }
 }
