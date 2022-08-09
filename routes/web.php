@@ -3,8 +3,8 @@
 use App\Http\Controllers\Auth\LoginController;
 
 
-Route::redirect('/home', '/admin');
-Auth::routes(['register' => false]);
+Route::redirect('/home', '/Dashboard');
+Auth::routes();
 
 Route::get('/',[LoginController::class,'showLoginForm']);
 Route::group(['prefix' => 'User','middleware' => ['auth']], function () {
@@ -18,7 +18,17 @@ Route::get('category/{category}', 'CategoryController@show')->name('categories.s
 Route::get('location/{location}', 'LocationController@show')->name('locations.show');
 });
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
+
+Route::group(['middleware' => ['auth']], function () {
+
+    Route::post('/updateProfile/{id}', 'HomeController@updateProfile')->name('user.updateProfile');
+    Route::post('/updateImage/{id}', 'HomeController@updateImage')->name('user.updateImage');
+    Route::get('/Contact-Us', 'HomeController@contact_us')->name('ContactUs');
+    Route::post('/Contact-Us', 'HomeController@sendContact')->name('send.contact');
+
+
+});
+Route::group(['prefix' => 'Dashboard', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
 
     Route::resource('subscriptions', SubscriptionController::class);

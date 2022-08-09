@@ -1,3 +1,9 @@
+$(".change-photo").on("click",function(){
+
+    $("#image-modal").modal("show");
+});
+
+
 $(document).ready(function () {
   window._token = $('meta[name="csrf-token"]').attr('content')
 

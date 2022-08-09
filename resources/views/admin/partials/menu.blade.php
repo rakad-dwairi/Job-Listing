@@ -3,11 +3,19 @@
 
         <ul class="nav">
             <li class="nav-item">
-                <a href="{{ route("admin.home") }}" class="nav-link">
+                <a href="{{ route('admin.home') }}" class="nav-link">
                     <i class="nav-icon fas fa-fw fa-tachometer-alt">
 
                     </i>
                     {{ trans('global.dashboard') }}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/User" class="nav-link">
+                    <i class="nav-icon fas fa-fw fa-tachometer-alt">
+
+                    </i>
+                    browses Site
                 </a>
             </li>
             @can('user_management_access')
@@ -21,7 +29,8 @@
                     <ul class="nav-dropdown-items">
                         @can('permission_access')
                             <li class="nav-item">
-                                <a href="{{ route("admin.permissions.index") }}" class="nav-link {{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'active' : '' }}">
+                                <a href="{{ route('admin.permissions.index') }}"
+                                    class="nav-link {{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'active' : '' }}">
                                     <i class="fa-fw fas fa-unlock-alt nav-icon">
 
                                     </i>
@@ -31,7 +40,8 @@
                         @endcan
                         @can('role_access')
                             <li class="nav-item">
-                                <a href="{{ route("admin.roles.index") }}" class="nav-link {{ request()->is('admin/roles') || request()->is('admin/roles/*') ? 'active' : '' }}">
+                                <a href="{{ route('admin.roles.index') }}"
+                                    class="nav-link {{ request()->is('admin/roles') || request()->is('admin/roles/*') ? 'active' : '' }}">
                                     <i class="fa-fw fas fa-briefcase nav-icon">
 
                                     </i>
@@ -41,7 +51,8 @@
                         @endcan
                         @can('user_access')
                             <li class="nav-item">
-                                <a href="{{ route("admin.users.index") }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
+                                <a href="{{ route('admin.users.index') }}"
+                                    class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
                                     <i class="fa-fw fas fa-user nav-icon">
 
                                     </i>
@@ -54,7 +65,8 @@
             @endcan
             @can('category_access')
                 <li class="nav-item">
-                    <a href="{{ route("admin.categories.index") }}" class="nav-link {{ request()->is('admin/categories') || request()->is('admin/categories/*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.categories.index') }}"
+                        class="nav-link {{ request()->is('admin/categories') || request()->is('admin/categories/*') ? 'active' : '' }}">
                         <i class="fa-fw fas fa-tags nav-icon">
 
                         </i>
@@ -64,7 +76,8 @@
             @endcan
             @can('location_access')
                 <li class="nav-item">
-                    <a href="{{ route("admin.locations.index") }}" class="nav-link {{ request()->is('admin/locations') || request()->is('admin/locations/*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.locations.index') }}"
+                        class="nav-link {{ request()->is('admin/locations') || request()->is('admin/locations/*') ? 'active' : '' }}">
                         <i class="fa-fw fas fa-map-marker-alt nav-icon">
 
                         </i>
@@ -74,7 +87,8 @@
             @endcan
             @can('company_access')
                 <li class="nav-item">
-                    <a href="{{ route("admin.companies.index") }}" class="nav-link {{ request()->is('admin/companies') || request()->is('admin/companies/*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.companies.index') }}"
+                        class="nav-link {{ request()->is('admin/companies') || request()->is('admin/companies/*') ? 'active' : '' }}">
                         <i class="fa-fw fas fa-building nav-icon">
 
                         </i>
@@ -84,7 +98,8 @@
             @endcan
             @can('job_access')
                 <li class="nav-item">
-                    <a href="{{ route("admin.jobs.index") }}" class="nav-link {{ request()->is('admin/jobs') || request()->is('admin/jobs/*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.jobs.index') }}"
+                        class="nav-link {{ request()->is('admin/jobs') || request()->is('admin/jobs/*') ? 'active' : '' }}">
                         <i class="fa-fw fas fa-briefcase nav-icon">
 
                         </i>
@@ -93,27 +108,30 @@
                 </li>
             @endcan
             @can('applied_job_access')
-            <li class="nav-item">
-                <a href="{{ route("admin.appliedJobs.index") }}" class="nav-link {{ request()->is('admin/appliedJobs') || request()->is('admin/appliedJobs/*') ? 'active' : '' }}">
-                    {{-- <i class="fa-fw fas fa-briefcase nav-icon">
+                <li class="nav-item">
+                    <a href="{{ route('admin.appliedJobs.index') }}"
+                        class="nav-link {{ request()->is('admin/appliedJobs') || request()->is('admin/appliedJobs/*') ? 'active' : '' }}">
+                        {{-- <i class="fa-fw fas fa-briefcase nav-icon">
 
                     </i> --}}
-                    <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                    {{ trans('cruds.allied_jobs.title') }}
-                </a>
-            </li>
-        @endcan
-        @can('subscription_access')
-        <li class="nav-item">
-            <a href="{{ route("admin.subscriptions.index") }}" class="nav-link {{ request()->is('admin/subscriptions') || request()->is('admin/subscriptions/*') ? 'active' : '' }}">
+                        <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                        {{ trans('cruds.allied_jobs.title') }}
+                    </a>
+                </li>
+            @endcan
+            @can('subscription_access')
+                <li class="nav-item">
+                    <a href="{{ route('admin.subscriptions.index') }}"
+                        class="nav-link {{ request()->is('admin/subscriptions') || request()->is('admin/subscriptions/*') ? 'active' : '' }}">
 
-<i class="fa fa-google" aria-hidden="true"></i>
-                {{ trans('cruds.subscriptions.sendMail') }}
-            </a>
-        </li>
-    @endcan
+                        <i class="fa fa-google" aria-hidden="true"></i>
+                        {{ trans('cruds.subscriptions.sendMail') }}
+                    </a>
+                </li>
+            @endcan
             <li class="nav-item">
-                <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
+                <a href="#" class="nav-link"
+                    onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i class="nav-icon fas fa-fw fa-sign-out-alt">
 
                     </i>
