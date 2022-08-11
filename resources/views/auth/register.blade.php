@@ -15,11 +15,27 @@
                         @endif
                         <div class="col-md-8">
                             <div class="mb-4">
-                                <h3>Sign In</h3>
+                                <h3>Register</h3>
                                 <p class="mb-4">If You Are Looking For Job The Job-Listing System Is The Best Way</p>
                             </div>
-                            <form method="POST" action="{{ route('login') }}">
+                            <form method="POST" action="{{ route('register') }}">
                                 @csrf
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-user"></i>
+                                        </span>
+                                    </div>
+                                    <input name="name" type="text"
+                                        class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" required
+                                        autofocus placeholder="{{ trans('global.register') }}"
+                                        value="{{ old('name', null) }}">
+                                    @if ($errors->has('name'))
+                                        <div class="invalid-feedback">
+                                            {{ $errors->first('name') }}
+                                        </div>
+                                    @endif
+                                </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
@@ -49,7 +65,19 @@
                                         </div>
                                     @endif
                                 </div>
-
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                                    </div>
+                                    <input name="password_confirmation" type="password"
+                                        class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" required
+                                        placeholder="password confirmation">
+                                    @if ($errors->has('password_confirmation'))
+                                        <div class="invalid-feedback">
+                                            {{ $errors->first('password_confirmation') }}
+                                        </div>
+                                    @endif
+                                </div>
                                 <div class="d-flex mb-5 align-items-center">
                                     <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
                                         <input type="checkbox" checked="checked" />
