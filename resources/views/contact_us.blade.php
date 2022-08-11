@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.secondaryMain')
 
 @section('content')
 
@@ -12,7 +12,7 @@
                     <div class="col-md-4 wow fadeIn" data-wow-delay="0.1s">
                         <div class="d-flex align-items-center bg-light rounded p-4">
                             <div class="bg-white border rounded d-flex flex-shrink-0 align-items-center justify-content-center me-3" style="width: 45px; height: 45px;">
-                                <i class="fa fa-map-marker-alt text-primary"></i>
+                                <i class="fa fa-map-marker text-primary"></i>
                             </div>
                             <span>123 Street, New York, USA</span>
                         </div>
@@ -28,7 +28,7 @@
                     <div class="col-md-4 wow fadeIn" data-wow-delay="0.5s">
                         <div class="d-flex align-items-center bg-light rounded p-4">
                             <div class="bg-white border rounded d-flex flex-shrink-0 align-items-center justify-content-center me-3" style="width: 45px; height: 45px;">
-                                <i class="fa fa-phone-alt text-primary"></i>
+                                <i class="fa fa-phone text-primary"></i>
                             </div>
                             <span>+012 345 6789</span>
                         </div>

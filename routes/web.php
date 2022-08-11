@@ -25,6 +25,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/updateImage/{id}', 'HomeController@updateImage')->name('user.updateImage');
     Route::get('/Contact-Us', 'HomeController@contact_us')->name('ContactUs');
     Route::post('/Contact-Us', 'HomeController@sendContact')->name('send.contact');
+    Route::get('/about', function(){
+        return view('about'); // Your Blade template name
+    });
 
 
 });
