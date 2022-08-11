@@ -1,22 +1,3 @@
-{{-- <header id="header" id="home">
-    <div class="container">
-        <div class="row align-items-center justify-content-between d-flex">
-          <div id="logo">
-            <a href="{{ route('home') }}"><img src="{{ asset('img/logo.png') }}" alt="" title="" /></a>
-          </div>
-          @auth 
-          <div>
-            <a class="btn btn-light text-dark" href="/admin">Home</a>
-          </div>
-          @else 
-          
-          <a class="btn btn-light text-dark" href="/login">Login</a>
-
-          @endauth
-        </div>
-    </div>
-</header> --}}
-
 <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
   <a href="index.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
       <h1 class="m-0 text-primary">ITrainee</h1>
