@@ -67,11 +67,22 @@
     </div>
 
 
+  
      <!-- Category Start -->
-     <div class="container-xxl py-5">
+  {{--    <div class="container-xxl py-5">
         <div class="container">
             <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Explore By Category</h1>
             <div class="row g-4">
+                @foreach($searchCategories as $category)     
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <a class="cat-item rounded p-4" href="{{ route('categories.show', $category->id) }}">
+                        <i class="fa-3x fa fa-envelope text-primary mb-4"></i>
+                        <h6 class="mb-3">{{ $category->name }}</h6>
+                        <p class="mb-0">{{ $category->jobs_count }}</p>
+                    </a>
+                </div>
+                @endforeach
+
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                     <a class="cat-item rounded p-4" href="">
                         <i class="fa-3x fa fa-envelope text-primary mb-4"></i>
@@ -99,10 +110,10 @@
                         <h6 class="mb-3">Database administrators</h6>
                         <p class="mb-0">123 Vacancy</p>
                     </a>
-                </div>
+                </div> 
             </div>
         </div>
-    </div>
+    </div>--}}
     <!-- Category End -->
 
     <!-- About Start -->

@@ -34,9 +34,12 @@
                 <button class="px-6 button is-primary is-rounded is-fullwidth has-text-weight-bold is-medium">
                   Login
                 </button>
+                <span>Dont have an account ? <a href="{{ URL::to('register') }}">Create One</a></span>
               </div>
             </form>
+            
           </div>
+          
 
 
   </div>

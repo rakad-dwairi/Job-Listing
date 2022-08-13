@@ -1,4 +1,4 @@
-<div class="col-lg-4 sidebar">
+{{-- <div class="col-lg-4 sidebar">
     <div class="single-slidebar">
         <h4>Jobs by Location</h4>
         <ul class="cat-list">
@@ -42,5 +42,21 @@
                 <li><a class="justify-content-between d-flex" href="{{ route('categories.show', $category->id) }}"><p>{{ $category->name }}</p><span>{{ $category->jobs_count }}</span></a></li>
             @endforeach
         </ul>
+    </div>
+</div> --}}
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-4">
+            @foreach($sidebarCategories as $category)     
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <a class="cat-item rounded p-4" href="{{ route('categories.show', $category->id) }}">
+                    <i class="fa-3x fa fa-envelope text-primary mb-4"></i>
+                    <h6 class="mb-3">{{ $category->name }}</h6>
+                    <p class="mb-0">{{ $category->jobs_count }}</p>
+                </a>
+            </div>
+            @endforeach
+        </div>
     </div>
 </div>

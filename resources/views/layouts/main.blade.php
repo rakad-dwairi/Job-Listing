@@ -42,9 +42,11 @@
         <section class="post-area section-gap">
             <div class="container">
                 <div class="row justify-content-center d-flex">
+                    @include('partials.sidebar') 
+                    <h1 class="center pb-5" style="text-align: center">Explore By Category</h1>
                     @yield('content')
 
-                    {{-- @include('partials.sidebar') --}}
+                    
                 </div>
             </div>
         </section>
