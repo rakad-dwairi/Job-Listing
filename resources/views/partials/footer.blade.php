@@ -19,8 +19,8 @@
              </div>
              <div class="col-lg-3 col-md-6">
                  <h5 class="text-white mb-4">Contact</h5>
-                 <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                 <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                 <p class="mb-2"><i class="fa fa-map-marker me-3"></i>123 Street, New York, USA</p>
+                 <p class="mb-2"><i class="fa fa-phone me-3"></i>+012 345 67890</p>
                  <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
                  <div class="d-flex pt-2">
                      <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
@@ -36,7 +36,7 @@
                      @csrf
                      <div class="position-relative mx-auto">
                         <input type="email" name="email"
-                             required  class="form-control bg-transparent w-100 py-3 ps-4 pe-5" placeholder="Enter your e-mail address"
+                             required  class="form-control bg-transparent w-100 py-3 ps-4 pe-5" placeholder="Your email"
                              aria-label="Recipient's username" aria-describedby="button-addon2">
                          <button class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"
                              id="button-addon2"> <b>Submit</b></button>

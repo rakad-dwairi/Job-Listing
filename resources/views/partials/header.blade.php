@@ -14,7 +14,7 @@
           <a href="{{ URL::to('about') }}" class="nav-item nav-link">About</a>
           <a href="{{ URL::to('Contact-Us') }}" class="nav-item nav-link">Contact</a>
       </div>
-      <a href="{{ URL::to('Dashboard') }}" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Dashboard<i class="fa fa-arrow-right ms-3"></i></a>
+      <a href="{{ URL::to('Dashboard') }}" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Profile<i class="fa fa-arrow-right ms-3"></i></a>
   </div>
 </nav>
 </header>

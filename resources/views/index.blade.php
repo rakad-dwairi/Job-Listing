@@ -49,7 +49,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <select name="category" id="default-selects2" class="form-select border-0">
-                                        <option value="0">All Categories</option>
+                                        
                                         @foreach ($searchCategories as $id => $searchCategories)
                                         <option value="{{ $id }}">{{ $searchCategories }}</option>
                                         @endforeach
@@ -75,14 +75,14 @@
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                     <a class="cat-item rounded p-4" href="">
                         <i class="fa-3x fa fa-envelope text-primary mb-4"></i>
-                        <h6 class="mb-3">Cyber Security</h6>
+                        <h6 class="mb-3">{{ $searchCategories }}</h6>
                         <p class="mb-0">12 Vacancy</p>
                     </a>
                 </div>
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
                     <a class="cat-item rounded p-4" href="">
                         <i class="fa-3x fa fa-headphones text-primary mb-4"></i>
-                        <h6 class="mb-3">Web developers</h6>
+                        <h6 class="mb-3">{{ $searchCategories }}</h6>
                         <p class="mb-0">123 Vacancy</p>
                     </a>
                 </div>
@@ -142,7 +142,7 @@
 @endsection
 
 @section('content')
-<div class="col-lg-8 post-list">
+<div class="col-lg-812 post-list">
 
     @if ($errors->any())
     @foreach ($errors->all() as $error)
@@ -164,41 +164,43 @@
     </div>
     @endif
     @foreach ($jobs as $job)
-    <div class="single-post d-flex flex-row">
-        <div class="thumb">
-            @if ($job->company->logo)
-            <img src="{{ $job->company->logo->getUrl() }}" alt="">
-            @endif
-        </div>
-        <div class="details">
-            <div class="title d-flex flex-row justify-content-between">
-                <div class="titles">
-                    <a href="{{ route('jobs.show', $job->id) }}">
-                        <h4>{{ $job->title }}</h4>
-                    </a>
-                    <h6>{{ $job->company->name }}</h6>
+
+    
+    <div class="tab-content">
+        <div id="tab-1" class="tab-pane fade show p-0 active">
+            <div class="job-item p-4 mb-4">
+                <div class="row g-4">
+                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                        @if ($job->company->logo)
+                        <img src="{{ $job->company->logo->getUrl() }}" alt="" class="flex-shrink-0 img-fluid border rounded" style="width: 80px; height: 80px;">
+                        @endif
+                        <div class="text-start ps-4">
+                            <h5 class="mb-3">{{ $job->company->name }}</h5>
+                            <span class="text-truncate me-3"><i class="fa fa-map-marker text-primary me-2"></i>{{ $job->address }}</span>
+                            <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{$job->job_nature}}</span>
+                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>{{ $job->salary }}</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                        @auth
+                         @if(auth()->user()->roles[0]->id != 1)
+                        <div class="d-flex mb-3">
+                            <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
+                                <button type="button" class="btn btn-primary button-applied-jbs" data-id="{{ $job->id }}"
+                                    data-toggle="modal">
+                                    Apply
+                                </button>
+                        </div>
+                        @endif
+
+                         @endauth
+                        <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                    </div>
                 </div>
             </div>
-            <p>
-                {{ $job->short_description }}
-            </p>
-            <h5>Job Nature: {{ $job->job_nature }}</h5>
-            <p class="address"><span class="lnr lnr-map"></span> {{ $job->address }}</p>
-            <p class="address"><span class="lnr lnr-database"></span> {{ $job->salary }}</p>
+        </div>
+    </div>
 
-            @auth
-            @if(auth()->user()->roles[0]->id != 1)
-
-            <!-- Button Applied Job -->
-            <button type="button" class="btn btn-primary button-applied-jbs" data-id="{{ $job->id }}"
-                data-toggle="modal">
-                Apply
-            </button>
-
-
-            @endif
-
-            @endauth
 
 
 
@@ -235,11 +237,10 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+
     @endforeach
 
-    <a class="text-uppercase loadmore-btn mx-auto d-block" href="{{ route('jobs.index') }}">Load More Job Posts</a>
+    <a class="btn btn-primary py-3 px-5 d-block loadlittle-btn mx-auto" href="{{ URL::to('User') }}">Browse More..</a>
 </div>
 
 

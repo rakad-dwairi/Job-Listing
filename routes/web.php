@@ -61,6 +61,7 @@ Route::group(['prefix' => 'Dashboard', 'as' => 'admin.', 'namespace' => 'Admin',
     // Companies
     Route::delete('companies/destroy', 'CompaniesController@massDestroy')->name('companies.massDestroy');
     Route::post('companies/media', 'CompaniesController@storeMedia')->name('companies.storeMedia');
+    Route::post('image-upload', 'CompaniesController@imageUploadPost');
     Route::resource('companies', 'CompaniesController');
 
     // Jobs
