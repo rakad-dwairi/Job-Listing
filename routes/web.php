@@ -6,7 +6,12 @@ use App\Http\Controllers\Auth\LoginController;
 Route::redirect('/home', '/Dashboard');
 Auth::routes();
 
-Route::get('/',[LoginController::class,'showLoginForm']);
+// Registration Routes...
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register');
+
+ Route::get('/',[LoginController::class,'showLoginForm']);
+
 Route::group(['prefix' => 'User','middleware' => ['auth']], function () {
 
 Route::get('/', 'HomeController@index')->name('home');
