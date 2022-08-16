@@ -25,6 +25,7 @@
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed pace-done sidebar-lg-show">
+  
     <header class="app-header navbar">
         <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
             <span class="navbar-toggler-icon"></span>
@@ -57,10 +58,11 @@
 
     <div class="app-body">
         @include('admin.partials.menu')
-        <main class="main">
+        <main class="main" style="background-image: url('material/img/wave.png');">
 
 
-            <div style="padding-top: 20px" class="container-fluid">
+            <div style="padding-top: 20px;" class="container-fluid">
+
                 @if(session('message'))
                     <div class="row mb-2">
                         <div class="col-lg-12">

@@ -47,7 +47,7 @@
                             </td>
                             <td>
                                 @can('permission_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.permissions.show', $permission->id) }}">
+                                    <a class="btn btn-xs btn-success" href="{{ route('admin.permissions.show', $permission->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan
