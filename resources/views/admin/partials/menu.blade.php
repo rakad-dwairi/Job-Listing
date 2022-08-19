@@ -7,7 +7,12 @@
                     <i class="nav-icon fas fa-fw fa-tachometer-alt">
 
                     </i>
+                    @if (auth()->user()->roles[0]->id == 1)
+                        
                     {{ trans('global.dashboard') }}
+                    @else 
+                    Profile
+                    @endif
                 </a>
             </li>
             <li class="nav-item">

@@ -42,7 +42,7 @@ class HomeController extends Controller
 
     public function updateProfile(Request $request, $id)
     {
-     $validate =   $request->validate([
+        $validate =   $request->validate([
             'name' => "required",
             'email' => "required|unique:users,email," . $id,
             'phone' => "nullable|regex:/^(07[7859]{1})[0-9]{7}$/",
@@ -52,38 +52,35 @@ class HomeController extends Controller
 
         $users = User::find($id);
 
-        if($users){
+        if ($users) {
             $users->update($validate);
 
-            return redirect()->back()->with('message','profile updated successfully');
-        }else{
-            return redirect()->back()->with('error','something went wrong');
-
+            return redirect()->back()->with('message', 'profile updated successfully');
+        } else {
+            return redirect()->back()->with('error', 'something went wrong');
         }
     }
 
 
-    public function updateImage(Request $request,$id)
+    public function updateImage(Request $request, $id)
     {
         $validate =   $request->validate([
             'image' => "required|mimes:png,jpg,jpeg,gif",
         ]);
         $data = User::find($id);
 
-        if($data){
+        if ($data) {
 
-            if($request->file('image')){
-                $file= $request->file('image');
-                $filename= date('YmdHi').$file->getClientOriginalName();
-                $file-> move(public_path('Image'), $filename);
+            if ($request->file('image')) {
+                $file = $request->file('image');
+                $filename = date('YmdHi') . $file->getClientOriginalName();
+                $file->move(public_path('Image'), $filename);
 
-                $data->update(['image'=>$filename]);
+                $data->update(['image' => $filename]);
             }
-            return redirect()->back()->with('message','Image Profile updated successfully');
-
-        }else{
-            return redirect()->back()->with('error','something went wrong');
-
+            return redirect()->back()->with('message', 'Image Profile updated successfully');
+        } else {
+            return redirect()->back()->with('error', 'something went wrong');
         }
     }
 
@@ -97,7 +94,7 @@ class HomeController extends Controller
     public function sendContact(Request $request)
     {
 
-    $validate =   $request->validate([
+        $validate =   $request->validate([
             'name' => "required",
             'email' => "required",
             'subject' => "required",
@@ -108,7 +105,6 @@ class HomeController extends Controller
 
         ContactUs::create($validate);
 
-        return redirect()->back()->with('message','Your message sent successfully');
-
+        return redirect()->back()->with('message', 'Your message sent successfully');
     }
 }

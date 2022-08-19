@@ -34,6 +34,7 @@ class Kernel extends HttpKernel
 
     protected $routeMiddleware = [
         'can'           => \Illuminate\Auth\Middleware\Authorize::class,
+        'checkAdmin'    => \App\Http\Middleware\checkAdmin::class,
         'auth'          => \Illuminate\Auth\Middleware\Authenticate::class,
         'guest'         => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'signed'        => \Illuminate\Routing\Middleware\ValidateSignature::class,

@@ -18,7 +18,7 @@ class AppliedJobController extends Controller
 {
     public function index()
     {
-        // dd();
+    
         if (auth()->user()->roles[0]->id == 1) {
 
             $appliedJob = AppliedJob::all();
