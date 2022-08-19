@@ -1,3 +1,6 @@
+<form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">
+    {{ csrf_field() }}
+</form>
 <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
   <a href="{{ URL::to('User') }}" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
       <h1 class="m-0 text-primary">ITrainee</h1>
@@ -20,8 +23,13 @@
             <i class="fa fa-user fa-2x"></i>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="{{ URL::to('Dashboard') }}"> <i class="fa fa-tachometer" aria-hidden="true"></i> DashBoard</a>
-          <a class="dropdown-item" href="#"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+          <a class="dropdown-item" href="{{ URL::to('Dashboard') }}"> <i class="fa fa-tachometer" aria-hidden="true"></i>
+        @if(auth()->user()->roles[0]->id == 1)    
+            DashBoard
+        @else
+Profile
+        @endif
+        </a>
           <a href="#" class="nav-link"
                     onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i class="nav-icon fas fa-fw fa-sign-out-alt">
