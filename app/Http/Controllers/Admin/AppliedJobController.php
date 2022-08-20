@@ -81,7 +81,7 @@ class AppliedJobController extends Controller
 
 
         $name ="Job Listings";
-                Mail::to('zyoud1133@gmail.com')->send(new ResumeMail($name));
+                Mail::to($email)->send(new ResumeMail($name));
 
 
 
