@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.UserMain')
 
 @section('banner', 'Job: '.$job->title)
 
@@ -25,33 +25,39 @@
         <strong>{{ Session::get('error') }}</strong>
     </div>
     @endif
-    <div class="tab-content">
-        <div id="tab-1" class="tab-pane fade show p-0 active">
-            <div class="job-item p-4 mb-4">
-                <div class="row g-4">
-                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row gy-5 gx-4">
+                <div class="col-lg-8">
+                    <div class="d-flex align-items-center mb-5">
                         @if ($job->company->logo)
-                        <img src="{{ $job->company->logo->getUrl() }}" alt=""
-                            class="flex-shrink-0 img-fluid border rounded" style="width: 80px; height: 80px;">
+                        <img class="flex-shrink-0 img-fluid border rounded" src="{{ $job->company->logo->getUrl() }}" alt="" style="width: 80px; height: 80px;">
                         @endif
                         <div class="text-start ps-4">
-                            <h5 class="mb-3">{{ $job->company->name }}</h5>
-                            <span class="text-truncate me-3"><i
-                                    class="fa fa-map-marker text-primary me-2"></i>{{ $job->address }}</span>
-                            <span class="text-truncate me-3"><i
-                                    class="far fa-clock text-primary me-2"></i>{{$job->job_nature}}</span>
-                            <span class="text-truncate me-0"><i
-                                    class="far fa-money-bill-alt text-primary me-2"></i>{{ $job->salary }}</span>
+                            <h3 class="mb-3">{{ $job->company->name }} </h3>
+                            <span class="text-truncate me-3"><i class="fa fa-map-marker text-primary me-2"></i>{{ $job->address }}</span>
+                            <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{$job->job_nature}}</span>
+                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>{{ $job->salary }}</span>
                         </div>
                     </div>
-                    <div
+
+                    <div class="mb-5">
+                        <h4 class="mb-3">Job description</h4>
+                        <p>{{ $job->full_description }}</p>
+                        <h4 class="mb-3">Responsibility</h4>
+                        <ul class="list-unstyled">
+                            <li><i class="fa fa-angle-right text-primary me-2"></i>{{ $job->requirements }}</li>
+                        </ul>
+                    </div>
+    
+                    <div class="">
+                        <h4 class="mb-4">Apply For The Job</h4>
+                        <div
                         class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                         @auth
                         @if(auth()->user()->roles[0]->id != 1)
                         <div class="d-flex mb-3">
-                            <a class="btn btn-light btn-square me-3" href=""><i
-                                    class="far fa-heart text-primary"></i></a>
-                            <button type="button" class="btn btn-primary button-applied-jbs" data-id="{{ $job->id }}"
+                            <button style="padding: 0.5rem 6rem !important;" type="button" class="btn btn-primary btn-lg button-applied-jbs" data-id="{{ $job->id }}"
                                 data-toggle="modal">
                                 Apply
                             </button>
@@ -59,35 +65,27 @@
                         @endif
 
                         @endauth
-                        <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01
-                            Jan, 2045</small>
+                    </div>
+                    </div>
+                </div>
+    
+                <div class="col-lg-4">
+                    <div class="bg-light rounded p-5 mb-4 wow slideInUp" data-wow-delay="0.1s">
+                        <h4 class="mb-4">Job Summery</h4>
+                        <p><i class="fa fa-angle-right text-primary me-2"></i>Published On: {{ $job->created_at }}</p>
+                        <p><i class="fa fa-angle-right text-primary me-2"></i>Vacancy: 123 Position</p>
+                        <p><i class="fa fa-angle-right text-primary me-2"></i>Job Nature: {{$job->job_nature}}</p>
+                        <p><i class="fa fa-angle-right text-primary me-2"></i>Salary: {{ $job->salary }} <span style="font-size: 13px" class="text-muted">JOD</span> </p>
+                        <p><i class="fa fa-angle-right text-primary me-2"></i>Location: {{ $job->address }}</p>
+                        <p class="m-0"><i class="fa fa-angle-right text-primary me-2"></i>Date Line: {{ $job->expired_date }}</p>
+                    </div>
+                    <div class="bg-light rounded p-5 wow slideInUp" data-wow-delay="0.1s">
+                        <h4 class="mb-4">Company Detail</h4>
+                        <p class="m-0">Ipsum dolor ipsum accusam stet et et diam dolores, sed rebum sadipscing elitr vero dolores. Lorem dolore elitr justo et no gubergren sadipscing, ipsum et takimata aliquyam et rebum est ipsum lorem diam. Et lorem magna eirmod est et et sanctus et, kasd clita labore.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div id="tab-1" class="tab-pane fade show p-0 active">
-        <div class="job-item p-4 mb-4">
-            <div class="row g-4">
-                <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                    <div class="tab-content">
-                        <div class="single-post job-details">
-                            <h4 class="single-title">Whom we are looking for</h4>
-                            <p>
-                                {{ $job->full_description }}
-                            </p>
-                        </div>
-                        <div class="single-post job-experience">
-                            <h4 class="single-title">Experience Requirements</h4>
-                            <p>
-                                {{ $job->requirements }}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 </div>
 

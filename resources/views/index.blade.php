@@ -99,12 +99,14 @@
         <div id="tab-1" class="tab-pane fade show p-0 active">
             <div class="job-item p-4 mb-4">
                 <div class="row g-4">
+                    
                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
                         @if ($job->company->logo)
                         <img src="{{ $job->company->logo->getUrl() }}" alt="" class="flex-shrink-0 img-fluid border rounded" style="width: 80px; height: 80px;">
                         @endif
                         <div class="text-start ps-4">
-                            <h5 class="mb-3">{{ $job->company->name }}</h5>
+                            <a href="{{ route('jobs.show', $job->id) }}"><h5 class="mb-3">{{ $job->company->name }}</h5></a>
+                            
                             <span class="text-truncate me-3"><i class="fa fa-map-marker text-primary me-2"></i>{{ $job->address }}</span>
                             <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{$job->job_nature}}</span>
                             <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>{{ $job->salary }}</span>
