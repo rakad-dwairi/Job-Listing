@@ -15,14 +15,6 @@
                     @endif
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="/User" class="nav-link">
-                    <i class="nav-icon fas fa-fw fa-tachometer-alt">
-
-                    </i>
-                    browses Site
-                </a>
-            </li>
             @can('user_management_access')
                 <li class="nav-item nav-dropdown">
                     <a class="nav-link  nav-dropdown-toggle" href="#">

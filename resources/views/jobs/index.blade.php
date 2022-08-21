@@ -55,7 +55,7 @@
                         @endif
 
                          @endauth
-                        <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                        <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>{{  $job->expired_date ?? 'Open Date' }}</small>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
 
 
             <!-- Modal Applied Job -->
-            <div class="modal fade" id="staticBackdrop-{{ $job->id }}" data-backdrop="static" data-keyboard="false"
+            <div class="modal" id="staticBackdrop-{{ $job->id }}" data-backdrop="static" data-keyboard="false"
                 tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -77,17 +77,19 @@
                             </button>
                         </div>
                         <div class="modal-body">
+                           
                             <form action="{{ route('admin.appliedJobs.store') }}" enctype="multipart/form-data"
                                 method="POST">
                                 @csrf
-                                <div class="input-group mb-3">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="resume" name="resume">
-                                        <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
-                                    </div>
+                                <div class="form-group">
+                                    <label  for="inputGroupFile02">Choose file</label>
+                                        <input type="file" class="form-control-file" id="resume" name="resume">
+                                        
+                                   
                                     <input type="hidden" name="job_id" value="{{ $job->id }}">
-                                </div>
-                                <p class="text-danger"> Note* the resume accept only pdf file </p>
+                                    <small class="text-danger form-text text-mute"> Note* the resume accept only pdf file </small>
+                                </div>               
+                           
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -101,7 +103,7 @@
 
     @endforeach
 
-    <a class="btn btn-primary py-3 px-5 d-block loadlittle-btn mx-auto" href="{{ URL::to('User') }}">Browse More..</a>
+    <a class="btn btn-primary py-3 px-5 d-block loadlittle-btn mx-auto" href="{{ URL::to('about') }}">Browse More..</a>
 </div>
 
 

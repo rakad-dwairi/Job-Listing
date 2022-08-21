@@ -15,8 +15,19 @@ Route::get('/', [LoginController::class, 'showLoginForm']);
 Route::group(['prefix' => 'Profile', 'middleware' => ['auth']], function () {
 
     Route::get('/', 'ProfileUserController@index')->name('profile');
+  
 
 });
+
+Route::group(['middleware' => ['auth']], function () {
+
+    Route::get('/UserDashoard', 'ProfileUserController@UserDashoard')->name('UserDashoard');
+  
+
+});
+
+
+
 
     Route::group(['prefix' => 'User', 'middleware' => ['auth']], function () {
 

@@ -23,11 +23,11 @@
             <i class="fa fa-user fa-2x"></i>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="{{ URL::to('Dashboard') }}"> <i class="fa fa-tachometer" aria-hidden="true"></i>
+          <a class="dropdown-item" href="{{ URL::to('UserDashoard') }}"> <i class="fa fa-tachometer" aria-hidden="true"></i>
         @if(auth()->user()->roles[0]->id == 1)    
             DashBoard
         @else
-Profile
+        Profile
         @endif
         </a>
           <a href="#" class="nav-link"

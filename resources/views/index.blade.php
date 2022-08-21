@@ -125,7 +125,7 @@
                         @endif
 
                          @endauth
-                        <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                        <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>{{ $job->expired_date }}</small>
                     </div>
                 </div>
             </div>
@@ -171,7 +171,7 @@
 
     @endforeach
 
-    <a class="btn btn-primary py-3 px-5 d-block loadlittle-btn mx-auto" href="{{ URL::to('User') }}">Browse More..</a>
+    <a class="btn btn-primary py-3 px-5 d-block loadlittle-btn mx-auto" href="{{ URL::to('about') }}">Browse More..</a>
 </div>
 
 
