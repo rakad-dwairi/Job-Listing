@@ -43,7 +43,7 @@
             <div class="container">
                 <div class="row justify-content-center d-flex">
                     @include('partials.sidebar') 
-                    <h1 class="center pb-5" style="text-align: center">Explore By Category</h1>
+                    <h1 class="center pb-5" style="text-align: center">Positions Listing</h1>
                     @yield('content')
 
                     

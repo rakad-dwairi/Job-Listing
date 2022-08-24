@@ -13,7 +13,7 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker\Factory::create();
-        $categories = ['IOS Developer', 'Web Developer', 'Software Engineer', 'Mobile Developer'];
+        $categories = ['Cyber Security', 'Web Developer', 'IT Project Managers', 'DataBase Adminstrators'];
 
         foreach($categories as $id => $categories)
             Category::create(['name' => $categories]);

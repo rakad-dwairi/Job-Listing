@@ -49,7 +49,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <select name="category" id="default-selects2" class="form-select border-0">
-                                        
+                                        <option value="0">Categories</option>
                                         @foreach ($searchCategories as $id => $searchCategories)
                                         <option value="{{ $id }}">{{ $searchCategories }}</option>
                                         @endforeach
