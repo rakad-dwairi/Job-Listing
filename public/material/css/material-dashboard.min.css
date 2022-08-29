@@ -10738,6 +10738,9 @@ fieldset[disabled][disabled] .btn.btn-raised {
     font-size: 1.1rem;
     vertical-align: middle
 }
+i.fa.fa-user.fa-2x {
+    font-size: 25px !important;
+  }
 
 .bg-inverse .btn-group-vertical.disabled,
 .bg-inverse .btn-group-vertical:disabled,

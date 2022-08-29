@@ -10665,6 +10665,10 @@ fieldset[disabled][disabled] .btn-group-raised .btn,
   font-size: 17px;
   line-height: 29px;
 }
+i.fa.fa-user.fa-2x {
+  font-size: 25px !important;
+}
+
 
 .btn-group-lg .btn.btn-fab,
 .btn.btn-fab.btn-lg,

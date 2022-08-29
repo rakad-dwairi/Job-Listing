@@ -46,7 +46,6 @@
                         @auth
                          @if(auth()->user()->roles[0]->id != 1)
                         <div class="d-flex mb-3">
-                            <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
                                 <button type="button" class="btn btn-primary button-applied-jbs" data-id="{{ $job->id }}"
                                     data-toggle="modal">
                                     Apply

@@ -30,7 +30,7 @@
                                 That You Deserved</h1>
                             <p class="fs-5 fw-medium text-white mb-4 pb-2">this platform is a great help for IT
                                 students to find the best places for practical training</p>
-                            <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">See
+                            <a href="{{ URL::to('about') }}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">See
                                 More</a>
                         </div>
                     </div>

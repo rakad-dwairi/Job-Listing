@@ -13,7 +13,7 @@
 
             <div class="mt-8 field">
                 <div class="control has-icons-left has-icons-right">
-                    <input name="name" type="text"
+                    <input name="name" type="text" pattern="^([A-Za-z]+[,.]?[ ]?|[A-Za-z]+['-]?)+$"
                         class="border-white input form-element line-input has-text-centered is-white has-text-weight-semibold"
                         placeholder="{{ trans('global.name') }}" value="{{ old('name', null) }}" required autofocus>
                 </div>
@@ -28,7 +28,7 @@
 
             <div class="mt-8 field">
                 <div class="control has-icons-left has-icons-right">
-                    <input id="email" type="email"
+                    <input id="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                         class="border-white input form-element line-input has-text-centered is-white has-text-weight-semibold"
                         name="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email"
                         autofocus>
@@ -46,7 +46,7 @@
             <div class="mt-8 field">
 
                 <div class="control has-icons-left has-icons-right">
-                    <input id="password" type="password"
+                    <input id="password" type="password" pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\S+$).{6,}$" 
                         class="border-white input form-element line-input has-text-centered is-white has-text-weight-semibold"
                         name="password" placeholder="Password" required autocomplete="current-password">
                 </div>
@@ -59,7 +59,7 @@
 
             <div class="mb-8 field">
                 <div class="control has-icons-left has-icons-right">
-                    <input name="password_confirmation" type="password"
+                    <input name="password_confirmation" type="password" pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\S+$).{6,}$" 
                         class="border-white input form-element line-input has-text-centered is-white has-text-weight-semibold"
                         required placeholder="password confirmation">
                 </div>

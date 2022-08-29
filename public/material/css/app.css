@@ -13078,6 +13078,11 @@ fieldset[disabled] .select select:hover {
     font-size: 21px
 }
 
+
+i.fa.fa-user.fa-2x {
+    font-size: 25px;
+}
+
 .file.is-large {
     font-size: 1.5rem
 }

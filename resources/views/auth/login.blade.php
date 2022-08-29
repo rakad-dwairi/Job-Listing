@@ -12,7 +12,7 @@
               @csrf
               <div class="mt-8 field">
                 <div class="control has-icons-left has-icons-right">
-                  <input id="email" type="email" class="border-white input form-element line-input has-text-centered is-white has-text-weight-semibold" name="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                  <input id="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="border-white input form-element line-input has-text-centered is-white has-text-weight-semibold" name="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                 </div>
                 @error('email')
                 <span class="invalid-feedback" role="alert">
