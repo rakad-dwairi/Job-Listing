@@ -12,7 +12,7 @@
       <div class="navbar-nav ms-auto p-4 p-lg-0">
           <a href="{{ URL::to('User') }}" class="nav-item nav-link active">Home</a>
           <div class="nav-item dropdown">
-              <a href="#" class="nav-link">Positions</a>
+              <a href="{{ URL::to('positions') }}" class="nav-link">Positions</a>
           </div>
           <a href="{{ URL::to('about') }}" class="nav-item nav-link">About</a>
           <a href="{{ URL::to('Contact-Us') }}" class="nav-item nav-link">Contact</a>

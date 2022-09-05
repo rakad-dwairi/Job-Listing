@@ -7,6 +7,10 @@ textarea {
     width: 100% !important;
 }
 
+.dt-buttons {
+    visibility: hidden;
+}
+
 .dataTables_length,
 .dataTables_filter,
 .dt-buttons {

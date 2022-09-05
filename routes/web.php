@@ -50,6 +50,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/about', function () {
         return view('about'); // Your Blade template name
     });
+    Route::get('/positions', 'PositionsController@index');
 });
 Route::group(['prefix' => 'Dashboard', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home')->middleware("checkAdmin");

@@ -14,7 +14,6 @@ class JobController extends Controller
             ->paginate(7);
 
         $banner = 'Jobs';
-// dd($jobs);
         return view('jobs.index', compact(['jobs', 'banner']));
     }
 
